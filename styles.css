@@ -95,7 +95,7 @@ body {
 }
 
 .email {
-  display: block;
+  align-self: flex-start;
   color: #fff;
   text-decoration: none;
   opacity: 0.95;
@@ -106,6 +106,7 @@ body {
   margin: 16px 0 0 0;
   padding: 0;
   text-indent: 0;
+  text-align: left;
   letter-spacing: -0.01em;
 }
 
@@ -151,7 +152,9 @@ body {
 }
 
 .tagline-group {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-left: 9vw;
   width: max-content;
   max-width: 100%;
