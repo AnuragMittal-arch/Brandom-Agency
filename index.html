@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Violet — Your brand best friend.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <video
+    id="bgVideo"
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="Violetweb_compressed.mp4" type="video/mp4" />
+  </video>
+
+  <button id="soundToggle" class="sound-toggle" aria-label="Unmute video">
+    <svg id="soundIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+    <span id="soundLabel">Tap for sound</span>
+  </button>
+
+  <main class="page">
+    <header class="top-bar">
+      <a class="brand" href="/" aria-label="Brandom">
+        <img src="logos/brandomlogo.png" alt="Brandom" />
+      </a>
+    </header>
+
+    <section class="hero">
+      <h1 class="hero-title">
+        Hi, I'm Violet.
+      </h1>
+      <div class="tagline-group">
+        <p class="hero-tagline">Your brand&rsquo;s best <span class="friend">friend<sup>™</sup></span><span class="friend">.</span></p>
+        <a class="email" href="mailto:violet@brandom.io">violet@brandom.io</a>
+      </div>
+    </section>
+
+    <footer class="bottom-bar">
+      <span class="partnered-label">We&rsquo;ve partnered with</span>
+      <img class="partners-strip" src="logos/brandlogos.png" alt="Partner brands" />
+    </footer>
+  </main>
+
+  <script>
+    const v = document.getElementById('bgVideo');
+    const btn = document.getElementById('soundToggle');
+    const icon = document.getElementById('soundIcon');
+    const label = document.getElementById('soundLabel');
+    const tryPlay = () => v.play().catch(() => {});
+    tryPlay();
+
+    const setUnmutedIcon = () => {
+      icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>';
+      label.textContent = 'Sound on';
+      btn.setAttribute('aria-label', 'Mute video');
+    };
+    const setMutedIcon = () => {
+      icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+      label.textContent = 'Tap for sound';
+      btn.setAttribute('aria-label', 'Unmute video');
+    };
+
+    const toggleSound = () => {
+      v.muted = !v.muted;
+      v.volume = 1;
+      tryPlay();
+      v.muted ? setMutedIcon() : setUnmutedIcon();
+    };
+
+    btn.addEventListener('click', toggleSound);
+  </script>
+</body>
+</html>
