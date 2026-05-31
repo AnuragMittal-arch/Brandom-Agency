@@ -1,27 +1,12 @@
 # brandom.agency
 
-Static site for brandom.agency. Deployed to a DigitalOcean droplet running aaPanel at `/www/wwwroot/brandom.agency/`.
+The website at https://brandom.agency, hosted on DigitalOcean and deployed automatically from this GitHub repo.
 
-## Local development
+**To make changes to the site, see [HOW_TO_USE.md](./HOW_TO_USE.md).** That file is written for both the user and Claude — open Claude in this folder, say "read HOW_TO_USE.md", and you can describe any change you want in plain English.
 
-It's plain HTML/CSS — open `index.html` in a browser, or serve with any static server:
+## What's in this folder
 
-```bash
-python3 -m http.server 8000
-```
-
-## Deployment
-
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which rsyncs the repo to the aaPanel web root over SSH.
-
-Required GitHub repository secrets:
-
-| Secret | Value |
-| --- | --- |
-| `SSH_HOST` | Droplet IP or hostname |
-| `SSH_USER` | SSH user (e.g. `root` or `www`) |
-| `SSH_PORT` | SSH port (usually `22`) |
-| `SSH_PRIVATE_KEY` | Private key whose public key is in the droplet's `~/.ssh/authorized_keys` |
-| `DEPLOY_PATH` | Web root path, e.g. `/www/wwwroot/brandom.agency` |
-
-See `DEPLOY_SETUP.md` for the full one-time setup walkthrough.
+- `index.html`, `styles.css`, videos, `logos/` — the site itself
+- `.github/workflows/deploy.yml` — auto-deploys on every push to `main`
+- `HOW_TO_USE.md` — instructions for daily updates (read this)
+- `fix-git-once.command` — double-click once if git ever stops working
