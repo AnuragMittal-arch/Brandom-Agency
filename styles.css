@@ -201,6 +201,28 @@ body {
   z-index: 3;
 }
 
+.footer-links {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  color: #fff;
+  opacity: 0.7;
+  text-decoration: none;
+  font-size: clamp(11px, 0.85vw, 15px);
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.footer-links span {
+  margin: 0 8px;
+  opacity: 0.4;
+}
+
 .partnered-label {
   text-transform: uppercase;
   font-size: 11px;
